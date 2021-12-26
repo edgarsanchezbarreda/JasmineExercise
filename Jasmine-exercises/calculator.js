@@ -5,6 +5,7 @@ window.addEventListener('DOMContentLoaded', function() {
     form.addEventListener("submit", function(e) {
       e.preventDefault();
       update();
+      form.reset();
     });
   }
 });
@@ -27,7 +28,7 @@ function setupIntialValues() {
 // Update the monthly payment
 function update() {
   const span = document.querySelector('span');
-  // span.append(calculateMonthlyPayment());
+  span.append(calculateMonthlyPayment());
 }
 
 // Given an object of values (a value has amount, years and rate ),
@@ -42,7 +43,8 @@ function calculateMonthlyPayment() {
   let numberOfPayments = loanYrs*12;
   let monthlyPayment = ((loanAmt*periodicInterestRate)/(1 - Math.pow(1 + periodicInterestRate, -numberOfPayments))).toFixed(2);
   
-  return monthlyPayment;
+
+  return "$" + monthlyPayment;
 }
 
 
