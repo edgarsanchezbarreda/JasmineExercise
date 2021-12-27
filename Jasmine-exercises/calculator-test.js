@@ -20,4 +20,3 @@ it("should return a result with 2 decimal places", function() {
   expect(calculateMonthlyPayment(values)),toEqual('131.00');
 });
 
-/// etc
